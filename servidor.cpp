@@ -1,24 +1,3 @@
-/*
- * servidor.cpp — Servidor de Chat Multicliente
- *
- * Disciplina: Sistemas Operacionais — IFG Campus Anápolis
- * Compilar e executar:
- *   g++ -pthread servidor.cpp -o servidor && ./servidor
- *
- * Arquitetura de threads:
- *   - Thread principal   : aceita novas conexões TCP em loop
- *   - Thread produtora   : uma por cliente; recebe mensagens e coloca no buffer
- *   - Thread consumidora : única; retira do buffer e faz broadcast para todos
- *
- * Sincronização do buffer compartilhado:
- *   - sem_t semSlots    : conta itens disponíveis para consumo (inicia em 0)
- *   - sem_t semEspacos  : conta espaços livres no buffer    (inicia em TAM_BUFFER)
- *   - pthread_mutex_t   : protege leitura/escrita no buffer circular
- *
- * Protocolo de mensagens (todas as strings enviadas via socket):
- *   bom|<comando>|<conteudo>|eom
- */
-
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>

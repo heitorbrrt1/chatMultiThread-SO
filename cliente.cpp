@@ -1,18 +1,3 @@
-/*
- * cliente.cpp — Cliente de Chat
- *
- * Disciplina: Sistemas Operacionais — IFG Campus Anápolis
- * Compilar e executar:
- *   g++ -pthread cliente.cpp -o cliente && ./cliente
- *
- * Arquitetura de threads:
- *   - Thread principal  : lê mensagens do teclado e envia ao servidor
- *   - Thread auxiliar   : recebe mensagens do servidor e imprime na tela
- *
- * Protocolo de mensagens (todas as strings enviadas via socket):
- *   bom|<comando>|<conteudo>|eom
- */
-
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
